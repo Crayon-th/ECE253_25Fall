@@ -1,0 +1,3 @@
+original: mean=20.4341, std=0.4315, n=500
+dcp: mean=20.1500, std=0.5186, n=500
+aodnet: mean=20.5135, std=0.4821, n=500
