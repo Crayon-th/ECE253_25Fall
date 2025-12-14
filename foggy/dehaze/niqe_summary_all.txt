@@ -1,0 +1,14 @@
+[real]
+  aodnet: mean=21.1659, std=0.9118, n=45
+  dcp: mean=20.7982, std=0.8280, n=45
+  original: mean=20.8120, std=0.8099, n=45
+
+[sots_o]
+  aodnet: mean=20.5135, std=0.4821, n=500
+  dcp: mean=20.1500, std=0.5186, n=500
+  original: mean=20.4341, std=0.4315, n=500
+
+[overall]
+  aodnet: weighted mean=20.5673 (across 545 images)
+  dcp: weighted mean=20.2035 (across 545 images)
+  original: weighted mean=20.4653 (across 545 images)
