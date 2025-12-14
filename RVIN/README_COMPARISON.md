@@ -8,6 +8,50 @@ This script compares 3 denoising methods on the custom dataset:
 
 **Note:** All traditional methods are GPU-accelerated using PyTorch for fast processing of high-resolution images.
 
+## Dataset
+
+* For the own collected data, please use the following google driver's link to download.
+https://drive.google.com/file/d/1ppc-3Rwv1GPH3qGyGyzH7jOEzHINv0wD/view?usp=drive_link
+
+* For the CBSD68 dataset, please refer to this link:
+https://github.com/clausmichele/CBSD68-dataset
+
+We only provide unprocessed data. To add noise to them, use the provided scripts:
+
+### Adding Noise to CBSD68 Dataset
+
+For CBSD68 dataset processing with multiple noise levels:
+
+```bash
+python compare_cbsd68_multinoise.py --cbsd68_dir /path/to/CBSD68/original --noise_levels 0.1 0.3 0.5 0.95
+```
+
+This will add random-valued impulse noise at different densities (10%, 30%, 50%, 95%) to all CBSD68 images and run all denoising methods.
+
+### Adding Noise to Custom Dataset
+
+For custom dataset, prepare your data with:
+
+1. **Clean images**: Place ground truth images in `dataset/selected/`
+2. **Noisy images**: Place noisy images in `dataset/noised/` (with corresponding filenames)
+
+Or use the noise generation utilities in `Utils/random_noise_generation.py` to programmatically add noise:
+
+```python
+from Utils.random_noise_generation import add_random_impulse_noise
+import cv2
+
+# Load clean image
+clean_img = cv2.imread('path/to/clean/image.jpg')
+
+# Add random impulse noise (10% density)
+noisy_img = add_random_impulse_noise(clean_img, p=0.1)
+
+# Save noisy image
+cv2.imwrite('path/to/noisy/image.jpg', noisy_img)
+```
+
+
 ## Usage
 
 ### Process All Dataset Images
